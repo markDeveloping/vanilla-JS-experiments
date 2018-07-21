@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+    // Regular
+    console.log("regular");
+    // Interpolated
+    const name = "Mark";
+    console.log(`This is a message for ${name}`);
+    // Styled
+    console.log('%c styles message for logs', 'font-size:25px;color:red;');
+    // warning!
+    console.warn("Warning - watch out!");
+    // Error :|
+    console.error("Error - watch out!");
+    // Info
+    console.info('information message'); //doesn't work in my chrome browser
+    // Testing
+    console.assert(1 === 0, 'Assertion evaluated to false');
+    // clearing
+//    console.clear();
+    // Viewing DOM Elements
+    const p = document.querySelector('p');
+    console.log(p);
+    // Grouping together
+    dogs.forEach(dog => {
+
+      console.log(`This is ${dog.name}`);
+      console.log(`He/she is ${dog.age}`);
+      });
+    // counting
+    console.count('wes');
+    console.count('steve');
+    console.count('wes');
+    console.count('wes');
+    console.count('wes');
+    console.count('steve');
+    // timing
+    console.time('Fetching data');
+    fetch('https://api.github.com/users/markDeveloper')
+    .then(data => data.json())
+    .then(data => {
+      console.timeEnd('Fetching data');
+      console.log(data);
+    })
+    // Table
+    console.table(dogs);
+
+  </script>
+</body>
+</html>
